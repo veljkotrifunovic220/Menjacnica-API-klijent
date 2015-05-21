@@ -25,10 +25,9 @@ public class AzuriranjeKursneListe {
 	public LinkedList<Valuta> ucitajValute() {
 		try {
 			ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(putanjaDoFajlaKursnaLista)));
-			kursevi = (LinkedList<Valuta>)(in.readObject());
+			kursevi = (LinkedList<Valuta>) (in.readObject());
 
-			in.close();
-		
+			in.close();	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

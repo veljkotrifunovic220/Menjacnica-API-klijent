@@ -1,10 +1,8 @@
 package menjacnica.util;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import com.google.gson.Gson;
@@ -38,12 +36,9 @@ public class JsonRatesAPIKomunikacija {
 					Valuta obj = new Valuta();
 					obj.setNaziv(valute[i]);
 					obj.setKurs(Double.parseDouble(jsonResult.get("rate").getAsString()));
-				
+					
 					kursevi[i] = obj;
-				
-				} catch (MalformedURLException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -60,7 +55,7 @@ public class JsonRatesAPIKomunikacija {
 	}
 
 	
-	private static String sendGet(String url) throws IOException {
+	private static String sendGet(String url) throws Exception {
 		URL obj = new URL(url);
 		HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 
